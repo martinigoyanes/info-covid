@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadNews(View view){
-        String msg = "Clickado en news";
+        String msg = "Clickado en mi polla gorda";
         System.out.println(msg);
     }
     public void loadRestrictions(View view){
