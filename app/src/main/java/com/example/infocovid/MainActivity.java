@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,14 +17,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadNews(View view){
         String msg = "Clickado en news";
-        System.out.println(msg);
+        Log.d("MainActivity",msg);
+        Intent intent = new Intent(this, DisplayNewsActivity.class);
+        startActivity(intent);
     }
     public void loadRestrictions(View view){
         String msg = "Clickado en restrictions";
-        System.out.println(msg);
+        Log.d("MainActivity",msg);
+        Intent intent = new Intent(this, DisplayRestrictionsActivity.class);
+        startActivity(intent);
     }
     public void loadSearch(View view){
         String msg = "Clickado en search";
-        System.out.println(msg);
+        Log.d("MainActivity",msg);
+        Intent intent = new Intent(this, DisplaySearchActivity.class);
+        startActivity(intent);
     }
 }
