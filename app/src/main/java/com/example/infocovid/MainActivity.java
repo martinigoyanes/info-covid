@@ -7,18 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.util.Log;
 
-import com.example.infocovid.APIClient;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        APIClient apiClient = new APIClient();
-        apiClient.execute();
-
     }
 
     public void loadNews(View view){

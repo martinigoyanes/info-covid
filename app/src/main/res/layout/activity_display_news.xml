@@ -21,6 +21,10 @@
             android:text="NOTICIAS"
             android:textSize="40sp" />
 
+        <ListView android:id="@+id/id_list_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
