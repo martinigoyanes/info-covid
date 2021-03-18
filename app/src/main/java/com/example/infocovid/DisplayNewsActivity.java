@@ -21,7 +21,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class DisplayNewsActivity extends AppCompatActivity {
 
-    private ListView m_listview;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,8 @@ public class DisplayNewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display_news);
 
         // Creamos un listview que va a contener los resultados de las consulta a Google Places
-        ListView listview = (ListView) findViewById(R.id.id_list_view);
+        listView = (ListView) findViewById(R.id.id_list_view);
+        System.out.println(listView.toString());
 
         NewsClient newsClient = new NewsClient();
         newsClient.execute();
@@ -69,7 +70,7 @@ public class DisplayNewsActivity extends AppCompatActivity {
             // and show them in the xml
             ArrayAdapter<String> myAdapter;
             myAdapter = new ArrayAdapter<String>(DisplayNewsActivity.this, R.layout.row_layout, R.id.listText, listTitle);
-            m_listview.setAdapter(myAdapter);
+            listView.setAdapter(myAdapter);
         }
     }
     public static ArrayList<Article> makeCall(String stringURL, String apiKey, String apiHost) {
