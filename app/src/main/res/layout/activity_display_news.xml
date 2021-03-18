@@ -21,9 +21,11 @@
             android:text="NOTICIAS"
             android:textSize="40sp" />
 
-        <ListView android:id="@+id/id_list_view"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
     </FrameLayout>
