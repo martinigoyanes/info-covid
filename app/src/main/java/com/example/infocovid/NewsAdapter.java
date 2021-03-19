@@ -1,5 +1,8 @@
 package com.example.infocovid;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +25,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ArticleViewHol
         CardView card;
         TextView title;
         TextView summary;
-        TextView link;
+        TextView date;
+        TextView source;
+
 
 
         public ArticleViewHolder(View itemView) {
@@ -30,7 +35,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ArticleViewHol
             card = (CardView)itemView.findViewById(R.id.article_card);
             title = (TextView)itemView.findViewById(R.id.article_title);
             summary = (TextView)itemView.findViewById(R.id.article_summary);
-            link = (TextView)itemView.findViewById(R.id.article_link);
+            source = (TextView)itemView.findViewById(R.id.article_source);
+            date = (TextView)itemView.findViewById(R.id.article_timeAndDate);
+
         }
     }
 
@@ -46,9 +53,19 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ArticleViewHol
 
         articleViewHolder.title.setText(article.getTitle());
         articleViewHolder.summary.setText(article.getSummary());
-        articleViewHolder.link.setText(article.getLink());
+        articleViewHolder.source.setText(article.getSource());
+        articleViewHolder.date.setText(article.getDate());
 
-        //articleViewHolder.itemView.setOnClickListener();
+
+        articleViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String link = articles.get(position).getLink();
+                Log.d("articleViewHolder", "Following link " + link);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
 

@@ -38,9 +38,6 @@ public class DisplayNewsActivity extends AppCompatActivity {
         newsLayout = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         newsView.setLayoutManager(newsLayout);
 
-        newsAdapter = new NewsAdapter(articles);
-        newsView.setAdapter(newsAdapter);
-
         NewsClient newsClient = new NewsClient(newsView);
         newsClient.execute();
 

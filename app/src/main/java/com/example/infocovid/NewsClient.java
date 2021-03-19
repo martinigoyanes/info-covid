@@ -10,6 +10,8 @@ import android.widget.ListView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -84,6 +86,10 @@ public class NewsClient extends AsyncTask<View,Void, ArrayList<Article>> {
         String link = "";
         String summary = "";
         String title = "";
+        String date = "";
+        String source = "";
+        int maxSummaryLength = 300;
+
         try {
             jsonReader = new JsonReader(new InputStreamReader(buffer, "UTF-8"));
 
@@ -96,24 +102,43 @@ public class NewsClient extends AsyncTask<View,Void, ArrayList<Article>> {
                         jsonReader.beginObject(); // Open article object
                         while (jsonReader.hasNext()) { // Start reading each field inside an article
                             key = jsonReader.nextName();
-                            if (key.equals("link")) { // Check if field is what we want
-                                link = jsonReader.nextString(); // Read link
-                            } else if (key.equals("summary")) {
-                                summary = jsonReader.nextString();
-                            } else if (key.equals("title")) {
+                            if (key.equals("summary")) { // Check if field is what we want
+                                summary = jsonReader.nextString(); // Read summary
+                                if(summary.length() > maxSummaryLength){
+                                    //Keep only first 300 chars and put "..." to indicate there is more
+                                    summary = summary.substring(0, Math.min(summary.length(), maxSummaryLength)); // keep only first 300 chars
+                                    summary = summary + "...";
+                                }
+
+                            } else if (key.equals("clean_url")) {
+                                source = jsonReader.nextString();
+                            } else if (key.equals("link")) {
+                                link = jsonReader.nextString();
+                            }else if (key.equals("title")) {
                                 title = jsonReader.nextString();
+                            }else if (key.equals("published_date")) {
+                                date = jsonReader.nextString(); // date = "2021-03-19 09:13:41"
+                                date = date.substring(5, date.length()); // remove year -> "03-19 09:13:41"
+                                String[] timeAndDay = date.split(" "); // split by space -> "03-19", "09:13:41"
+                                String[] monthAndDay = timeAndDay[0].split("-");  // Split month and day -> "03","19"
+                                timeAndDay[0] = monthAndDay[1] + "-" + monthAndDay[0];   // Rearrange so it is day-month -> "19","03"
+                                date = timeAndDay[0] + " " + timeAndDay[1]; // Put whole date together back
+                                date = date.substring(0, date.length()-3);// Remove seconds, no one cares -> "19-03 09:13"
                             } else {
                                 jsonReader.skipValue(); // Skip values of other keys
                             }
-                            // Create article
-                            Article article = new Article(link, summary, title);
-                            result.add(0, article);
                         }
+                        jsonReader.endObject();
+                        // Create article
+                        Article article = new Article(link, summary, title, date, source);
+                        result.add(0, article);
                     }
+                    jsonReader.endArray();
                 } else {
                     jsonReader.skipValue(); // Skip values of other keys
                 }
             }
+            jsonReader.endObject();
             // Close JSON and Connection
             jsonReader.close();
             myConnection.disconnect();
@@ -122,7 +147,9 @@ public class NewsClient extends AsyncTask<View,Void, ArrayList<Article>> {
             myConnection.disconnect();
             return result;
         }
+
         Log.d("NewsClient", "Obtained " + result.size() + " news");
         return result;
     }
 }
+
