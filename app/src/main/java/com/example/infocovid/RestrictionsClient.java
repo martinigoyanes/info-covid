@@ -26,22 +26,31 @@ import javax.net.ssl.HttpsURLConnection;
 public class RestrictionsClient extends AsyncTask<View,Void, HashMap<String, String>> {
     ExpandableListView restrictionsView;
     Context context;
+    String zipCode = "";
+    String province = "";
 
-    public RestrictionsClient(ExpandableListView restrictionsView, Context context) {
+    public RestrictionsClient(ExpandableListView restrictionsView, Context context, String zipCode, String province) {
         this.restrictionsView = restrictionsView;
         this.context = context;
+        this.zipCode = zipCode;
+        this.province = province;
     }
 
     @Override
     protected HashMap<String, String> doInBackground(View... views) {
         HashMap<String, String> result;
-        String endPoint = "https://jsonplaceholder.typicode.com/posts/1";
-        String apiKey = "";
-        String apiHost = "";
+        String apiKey = "z01h3G9ueaAVelCMd0ytK0Net";
+        String endPoint = "";
+
+        // Si buscamos por zipcode o buscamos por provincia son dos endpoints diferentes
+        if(this.zipCode != null)
+            endPoint = "https://api.quecovid.es/restriction/restriction?zipcode=" + this.zipCode + "&token=" + apiKey;
+        else if(this.province != null)
+            endPoint = "https://api.quecovid.es/restriction/restriction?place=provincia+de+" + this.province + "&token=" + apiKey;
 
         Log.d("RestrictionsClient", endPoint);
 
-        result = makeCall(endPoint, apiKey, apiHost, this.context);
+        result = makeCall(endPoint, apiKey, this.context);
 
         return result;
 
@@ -55,7 +64,7 @@ public class RestrictionsClient extends AsyncTask<View,Void, HashMap<String, Str
         this.restrictionsView.setAdapter(expandableListAdapter);
     }
 
-    public static HashMap<String, String>  makeCall(String stringURL, String apiKey, String apiHost, Context context) {
+    public static HashMap<String, String>  makeCall(String stringURL, String apiKey, Context context) {
         URL url = null;
         BufferedInputStream buffer = null;
         JsonReader jsonReader;
@@ -73,8 +82,6 @@ public class RestrictionsClient extends AsyncTask<View,Void, HashMap<String, Str
         try {
             if (url != null) {
                 myConnection = (HttpsURLConnection) url.openConnection();
-                //myConnection.setRequestProperty("x-rapidapi-key", apiKey);
-                //myConnection.setRequestProperty("x-rapidapi-host", apiHost);
                 int responseCode = myConnection.getResponseCode();
                 if (responseCode == 200) {
                     buffer = new BufferedInputStream(myConnection.getInputStream());
@@ -85,21 +92,6 @@ public class RestrictionsClient extends AsyncTask<View,Void, HashMap<String, Str
         } catch (IOException ioe) {
             Log.d("RestrictionsClient", "Exception connecting to " + stringURL + "\n" + "Exception:\t" + ioe.toString());
         }
-
-        // ***** Faking QueCovid Answer ****
-        try {
-            InputStream fis = context.getAssets().open("quecovid.txt");
-            buffer = new BufferedInputStream(fis);
-        } catch(FileNotFoundException fnfe)
-        {
-            System.out.println("The specified file not found" + fnfe);
-        }
-        catch(IOException ioe)
-        {
-            System.out.println("I/O Exception: " + ioe);
-        }
-        // ***** Faking QueCovid Answer ****
-
 
         HashMap<String, String> restrictions = new HashMap<String, String>();
         int restrictionsLength = 0;

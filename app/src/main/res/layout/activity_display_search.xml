@@ -21,6 +21,42 @@
                 android:text="SEARCH"
                 android:textSize="40sp" />
 
+            <SearchView
+                android:id="@+id/searchBox"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="20pt"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:iconifiedByDefault="false"
+                android:queryHint="Madrid"
+                >
+                <requestFocus />
+            </SearchView>
+            <Button
+                android:id="@+id/button_madrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20pt"
+                android:onClick="loadMadrid"
+                android:text="Madrid" />
+            <Button
+                android:id="@+id/button_barcelona"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10pt"
+                android:onClick="loadBarcelona"
+                android:text="Barcelona" />
+            <Button
+                android:id="@+id/button_coruña"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10pt"
+                android:onClick="loadCoruña"
+                android:text="Coruña" />
         </LinearLayout>
+
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

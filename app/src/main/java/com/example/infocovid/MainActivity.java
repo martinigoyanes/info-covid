@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         String msg = "Clickado en restrictions";
         Log.d("MainActivity",msg);
         Intent intent = new Intent(this, DisplayRestrictionsActivity.class);
+        intent.putExtra("zipCode", "28045");
         startActivity(intent);
     }
     public void loadSearch(View view){
