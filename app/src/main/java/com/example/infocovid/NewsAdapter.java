@@ -28,8 +28,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ArticleViewHol
         TextView date;
         TextView source;
 
-
-
         public ArticleViewHolder(View itemView) {
             super(itemView);
             card = (CardView)itemView.findViewById(R.id.article_card);

@@ -1,0 +1,138 @@
+[
+   {
+      "cities":[
+         "El Monastil",
+         "Camara",
+         "La Siesta",
+         "Jaud",
+         "Huerta Nueva",
+         "Elda",
+         "Campico",
+         "Molinos, Los (Elda)",
+         "Pata",
+         "La Horteta",
+         "Azafranar",
+         "Sigmat",
+         "Bateig",
+         "El Chorrillo",
+         "Agualejas",
+         "Barranco Gobernador",
+         "Campo Alto",
+         "Boveda"
+      ],
+      "id":"10",
+      "place":"Elda",
+      "restrictions":[
+         {
+            "title":"Prohibición de salida del municipio",
+            "description":"Está prohibido, salvo causa justificada, la salida del municipio de residencia.\n"
+         },
+         {
+            "title":"Suspensión de las visitas a residencias",
+            "description":"Se suspenden visitas y salidas de los centros residenciales de mayores y de personas con discapacidad.\n"
+         },
+         {
+            "title":"Limitaciones en los entierros y velatorios",
+            "description":"Los velatorios podrán realizarse en todo tipo de instalaciones, públicas o privadas, limitando su aforo a 1/3 con un límite máximo, en cada momento, de 25 personas en espacios al aire libre o de 15 personas en espacios cerrados, sean o no convivientes y siempre que se pueda garantizar la distancia de seguridad.\r"
+         },
+         {
+            "title":"Limitaciones en la celebración de ceremonias",
+            "description":"Las ceremonias podrán realizarse en todo tipo de instalaciones, públicas o privadas, ya sea en espacios al aire libre o espacios cerrados, siempre que no se supere el 30 por ciento de su aforo con un máximo de 30 personas\r"
+         },
+         {
+            "title":"Limitaciones para establecimientos minoristas y de actividades de servicios profesionales",
+            "description":"Los establecimientos y locales comerciales minoristas y de actividades de servicios profesionales, con independencia de su superficie útil de exposición y venta, deberán reducir a 1/3 el aforo total en los establecimientos y locales. En el caso de establecimientos o locales distribuidos en varias plantas, la presencia de clientela en cada una de ellas, deberá guardar esta misma proporción.\r"
+         },
+         {
+            "title":"Aforo al 50% en los mercadillos al aire libre",
+            "description":"Se podrán instalar hasta un máximo del 50% de los puestos habitualmente autorizados, pudiendo, alternativamente aumentar el espacio disponible, de manera que se produzca un efecto equivalente para garantizar que se mantenga la distancia de seguridad y se eviten las aglomeraciones.\r"
+         },
+         {
+            "title":"Limitaciones en centros y parques comerciales",
+            "description":"Se limita a 1/3 el aforo de cada uno de los establecimientos y locales comerciales. No se permite la permanencia de clientes en las zonas comunes excepto para el tránsito. Las zonas recreativas deberán permanecer cerradas. Estas medidas no se aplican en los locales de hostelería y restauración.\r"
+         },
+         {
+            "title":"Aforo reducido en la hostelería",
+            "description":"El consumo en el interior del local no podrá superar 1/3 del aforo. En las terrazas no podrá superar el 50% del aforo.\r"
+         },
+         {
+            "title":"Restricciones en hoteles y alojamientos turísticos",
+            "description":"Alojamientos que ofrecen habitaciones colectivas: las personas pertenecientes a distintos grupos de convivencia no podrán pernoctar en la misma estancia. Las zonas comunes de los hoteles y alojamientos turísticos no podrán superar 1/3 de su aforo.\r"
+         },
+         {
+            "title":"Aforo reducido en bibliotecas y archivos",
+            "description":"En las bibliotecas, tanto de titularidad pública como privada, podrán llevarse a cabo actividades culturales y de estudio en sala, siempre que no se supere el 50% de su aforo.\n"
+         },
+         {
+            "title":"Aforo reducido en museos y salas de exposiciones",
+            "description":"Los museos y salas de exposiciones, de cualquier titularidad y gestión, pueden acoger tanto visitas de público como actividades culturales, educativas, conferencias, talleres y conciertos, siempre que no se supere el 50% del aforo autorizado para cada una de las salas y espacios cerrados del museo y de las salas de exposiciones.\n"
+         },
+         {
+            "title":"Limitaciones en cines, teatros, auditorios y similares",
+            "description":"Los cines, teatros, auditorios, circos de carpa y espacios cerrados similares podrán desarrollar su actividad con el público sentado y siempre que no se supere el 50% del aforo autorizado en cada espacio cerrado. Las entradas han de ser numeradas y los asientos preasignados con identificación de las personas que los ocupen.\r"
+         },
+         {
+            "title":"Limitada la actividad deportiva no profesional",
+            "description":"No se podrá superar un 1/3 del aforo garantizando ventilación. En las actividades grupales el máximo será de seis personas. No se permitirá el uso de vestuarios ni duchas. Las competiciones y eventos deportivos se disputarán sin público.\r"
+         }
+      ],
+      "type":"city",
+      "updated":null
+   },
+   {
+      "id":"2",
+      "place":"Comunidad Valenciana",
+      "restrictions":[
+         {
+            "title":"Cierre perimetral de la comunidad autónoma",
+            "description":"Restricción de entradas y salidas de la comunidad autónoma, salvo desplazamientos por motivos laborales, de estudios, cuidado de familiares, retorno al lugar de residencia y otras razones de fuerza mayor.\r"
+         },
+         {
+            "title":"Restringida la movilidad nocturna",
+            "description":"Se producirá un confinamiento desde las doce de la noche hasta las seis de la mañana, salvo causa justificada.\r"
+         },
+         {
+            "title":"Limitaciones en las reuniones sociales",
+            "description":"Los encuentros sociales o familiares se limitan a un máximo de seis personas, en espacios públicos y privados, excepto en el caso de personas convivientes.\r"
+         },
+         {
+            "title":"Limitada la venta de alcohol",
+            "description":"Prohibida su venta desde las diez de la noche hasta las ocho de la mañana, a excepción de los establecimientos de hostelería y restauración. El consumo está totalmente prohibido en la vía pública durante todo el día, salvo en bares y restaurantes.\r"
+         },
+         {
+            "title":"Prohibido el consumo en barra",
+            "description":"En los establecimientos de hostelería, queda completamente prohibido el consumo en barra.\r"
+         },
+         {
+            "title":"Aforo limitado en la hostelería y restauración",
+            "description":"Se restringe a un tercio el aforo máximo en el interior de espacios de restauración, además se limita el aforo de terrazas a la mitad."
+         },
+         {
+            "title":"Aforo limitado en establecimientos y locales comerciales minoristas y de actividades de servicios profesionales",
+            "description":"Con independencia de su superficie útil de exposición y venta, deberán reducir al 50% el aforo total en los establecimientos y locales. En el caso de establecimientos o locales distribuidos en varias plantas, la presencia de clientela en cada una de ellas, deberá guardar esta misma proporción. Si no es posible mantener la distancia de seguridad, se restringirá la permanencia dentro del local a un cliente."
+         },
+         {
+            "title":"Limitaciones en cines, teatros, auditorios y similares",
+            "description":"Los cines, teatros, auditorios, circos de carpa y espacios cerrados similares podrán desarrollar su actividad con el público sentado y siempre que no se supere el 50% del aforo autorizado en cada espacio cerrado. Las entradas han de ser numeradas y los asientos preasignados con identificación de las personas que los ocupen.\r"
+         },
+         {
+            "title":"Limitaciones en la hostelería",
+            "description":"En las mesas sólo puede haber un máximo de 6 personas por mesa y queda prohibido el consumo en barra. El uso de la mascarilla es obligatorio en todo momento, salvo en el instante de la consumición.\r"
+         },
+         {
+            "title":"Limitaciones en el horario de jardines y zonas de esparcimiento al aire libre",
+            "description":"Permanecerán abiertos sólo de ocho de la mañana a diez de la noche.\r"
+         },
+         {
+            "title":"Aforo al 50% en los mercadillos al aire libre",
+            "description":"En los mercadillos al exterior, el aforo no podrá superar el 50%.\r"
+         },
+         {
+            "title":"Aforo limitado en centros y parques comerciales",
+            "description":"Los centros comerciales deben reducir su aforo al 50 por ciento.\r"
+         }
+      ],
+      "type":"region",
+      "updated":"2020-11-09 01:36:00"
+   }
+]
