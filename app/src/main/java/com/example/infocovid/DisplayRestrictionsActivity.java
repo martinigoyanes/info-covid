@@ -25,17 +25,19 @@ public class DisplayRestrictionsActivity extends Activity {
         Bundle bundle = getIntent().getExtras();
 
         String zipCode = bundle.getString("zipCode");
-        Log.d("DisplayRestrictions", "Loading restrictions for " + zipCode);
+        if(zipCode != null)
+            Log.d("DisplayRestrictions", "Loading restrictions for " + zipCode);
 
         String province = bundle.getString("province");
-        if(province != null)
-                province.toLowerCase().replace(" ", "+");
-        Log.d("DisplayRestrictions", "Loading restrictions for " + province);
+        if(province != null) {
+            province.toLowerCase().replace(" ", "+");
+            Log.d("DisplayRestrictions", "Loading restrictions for " + province);
+        }
 
         setContentView(R.layout.activity_display_restrictions);
         restrictionsView = (ExpandableListView) findViewById(R.id.expandableListView);
 
-        RestrictionsClient restrictionsClient = new RestrictionsClient(restrictionsView, this, zipCode, province);
+        restrictionsClient = new RestrictionsClient(restrictionsView, this, zipCode, province);
         restrictionsClient.execute();
     }
 }
