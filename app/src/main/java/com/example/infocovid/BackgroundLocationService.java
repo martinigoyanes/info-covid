@@ -1,6 +1,9 @@
 package com.example.infocovid;
 
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -10,11 +13,15 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
+
+import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
 
 import java.io.IOException;
 import java.util.List;
@@ -43,35 +50,16 @@ public class BackgroundLocationService extends Service {
             mLastLocation = new Location(provider);
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         public void onLocationChanged(Location location) {
             mLastLocation = location;
-            //Log.i(TAG, "LocationChanged: " + location);
+            // Transfrom longitude and latitude to zipCode and save it to disk
+            saveZipCode(mLastLocation);
 
-            // Transformar lat y long en zipCode
-            Geocoder geocoder = new Geocoder(BackgroundLocationService.this, Locale.getDefault());
-            // lat,lng, your current location
-            try{
-                List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                zipCode = addresses.get(0).getPostalCode();
-            }catch(IOException ioe){
-                ioe.printStackTrace();
-            }
+            // Check if curfew is 30 min close, if so we send a notification
 
-            // Creamos colecciÃ³n de preferencias
-            String sharedPrefFile = "com.uc3m.it.hellolocation";
-            SharedPreferences mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-
-            SharedPreferences.Editor editor = mPreferences.edit();
-
-            // Guardamos el valor de la preferencia
-            editor.putString("zipCode", zipCode);
-            editor.apply();
-
-            Toast.makeText(BackgroundLocationService.this, "LAT: " + location.getLatitude() + "\n LONG: "
-                    + location.getLongitude() + " \n ZIPCODE: " + zipCode, Toast.LENGTH_SHORT).show();
-            Log.d(TAG, "LAT: " + location.getLatitude() + "\n LONG: "
-                    + location.getLongitude() + " \n ZIPCODE: " + zipCode);
+            notifyCurfew();
         }
 
         @Override
@@ -93,7 +81,7 @@ public class BackgroundLocationService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
-        onTaskRemoved(intent);
+        //onTaskRemoved(intent);
         return START_STICKY;
     }
 
@@ -145,6 +133,61 @@ public class BackgroundLocationService extends Service {
         public BackgroundLocationService getService() {
             return BackgroundLocationService.this;
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void notifyCurfew() {
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.logo) //set icon for notification
+                        .setContentTitle("Toque de queda cerca")
+                        .setContentText("30 minutos para el toque de queda en tu zona!")
+                        .setAutoCancel(true) // makes auto cancel of notification
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT); //set priority of notification
+
+
+        // Add as notification
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        String channelId = "Curfew";
+        NotificationChannel channel = new NotificationChannel(
+                channelId,
+                "curfewChannel",
+                NotificationManager.IMPORTANCE_HIGH);
+        manager.createNotificationChannel(channel);
+        builder.setChannelId(channelId);
+        manager.notify(0, builder.build());
+    }
+
+    private void saveZipCode(Location location){
+        // Transformar lat y long en zipCode
+        String zipCode = "";
+        Geocoder geocoder = new Geocoder(BackgroundLocationService.this, Locale.getDefault());
+        // lat,lng, your current location
+        try{
+            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+            zipCode = addresses.get(0).getPostalCode();
+        }catch(IOException ioe){
+            ioe.printStackTrace();
+        }
+
+        // Creamos colecciÃ³n de preferencias
+        String sharedPrefFile = "com.uc3m.it.hellolocation";
+        SharedPreferences mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = mPreferences.edit();
+
+        // Guardamos el valor de la preferencia
+        editor.putString("zipCode", zipCode);
+        editor.apply();
+
+        Toast.makeText(BackgroundLocationService.this, "LAT: " + location.getLatitude() + "\n LONG: "
+                + location.getLongitude() + " \n ZIPCODE: " + zipCode, Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "LAT: " + location.getLatitude() + "\n LONG: "
+                + location.getLongitude() + " \n ZIPCODE: " + zipCode);
+    }
+
+    private void checkCurfew(){
+
     }
 }
 
