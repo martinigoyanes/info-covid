@@ -48,7 +48,7 @@ public class BackgroundLocationService extends Service {
         public void onLocationChanged(Location location) {
             mLastLocation = location;
             // Transfrom longitude and latitude to zipCode and save it to disk
-            saveZipCode(mLastLocation);
+            saveLocationInfo(mLastLocation);
 
             // Launch curfew notification client
             NotificationClient notificationClient = new NotificationClient(getApplicationContext());
@@ -129,14 +129,17 @@ public class BackgroundLocationService extends Service {
     }
 
 
-    private void saveZipCode(Location location){
+    private void saveLocationInfo(Location location){
         // Transformar lat y long en zipCode
         String zipCode = "";
+        String comunidad = "";
         Geocoder geocoder = new Geocoder(BackgroundLocationService.this, Locale.getDefault());
-        // lat,lng, your current location
+        // Reverse Geocode coordiantes
         try{
             List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
             zipCode = addresses.get(0).getPostalCode();
+            // no saca la comunidad, saca la provincia como hacemos?
+            comunidad = addresses.get(0).getSubAdminArea();
         }catch(IOException ioe){
             ioe.printStackTrace();
         }
@@ -149,10 +152,11 @@ public class BackgroundLocationService extends Service {
 
         // Guardamos el valor de la preferencia
         editor.putString("zipCode", zipCode);
+        editor.putString("comunidad", comunidad);
         editor.apply();
 
         Toast.makeText(BackgroundLocationService.this, "LAT: " + location.getLatitude() + "\n LONG: "
-                + location.getLongitude() + " \n ZIPCODE: " + zipCode, Toast.LENGTH_SHORT).show();
+                + location.getLongitude() + " \n ZIPCODE: " + zipCode + "\n CCAA: " + comunidad, Toast.LENGTH_SHORT).show();
         Log.d(TAG, "LAT: " + location.getLatitude() + "\n LONG: "
                 + location.getLongitude() + " \n ZIPCODE: " + zipCode);
     }

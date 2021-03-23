@@ -28,6 +28,11 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 public class MainActivity extends AppCompatActivity {
     private final int PERMISSION_REQUEST_CODE = 200;
     public BackgroundLocationService locationService;
+    TextView casesText;
+    TextView deathsText;
+    TextView dateText;
+    TextView cardTitle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +44,35 @@ public class MainActivity extends AppCompatActivity {
         this.getApplication().startService(intent);
         this.getApplication().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
 
+        // Get stats of covid19
+        StatisticsClient statisticsClient = new StatisticsClient(this);
+        statisticsClient.execute();
+
+        showStatistics();
+
     }
 
+    public void showStatistics(){
+        cardTitle = (TextView) findViewById(R.id.card_title);
+        casesText = (TextView) findViewById(R.id.cases_text);
+        deathsText = (TextView) findViewById(R.id.deaths_text);
+        dateText = (TextView) findViewById(R.id.date_text);
+
+        // Cargamos stadistics del disk
+        String sharedPrefFile = "com.uc3m.it.infocovid";
+        SharedPreferences mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+
+        String cases = mPreferences.getString("today_new_confirmed", "0");
+        String deaths = mPreferences.getString("today_new_deaths", "0");
+        String date = mPreferences.getString("last_updated", "0");
+        String comunidad = mPreferences.getString("comunidad", "null");
+
+        casesText.setText(cases);
+        deathsText.setText(deaths);
+        dateText.setText("Actualizado el " + date);
+        cardTitle.setText("Hoy en " + comunidad);
+
+    }
     public void loadNews(View view){
         String msg = "Clickado en news";
         Log.d("MainActivity",msg);
