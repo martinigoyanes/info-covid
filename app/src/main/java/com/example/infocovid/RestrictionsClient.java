@@ -50,7 +50,7 @@ public class RestrictionsClient extends AsyncTask<View,Void, HashMap<String, Str
 
         Log.d("RestrictionsClient", endPoint);
 
-        result = makeCall(endPoint, apiKey, this.context);
+        result = makeCall(endPoint);
 
         return result;
 
@@ -64,12 +64,11 @@ public class RestrictionsClient extends AsyncTask<View,Void, HashMap<String, Str
         this.restrictionsView.setAdapter(expandableListAdapter);
     }
 
-    public static HashMap<String, String>  makeCall(String stringURL, String apiKey, Context context) {
+    public static HashMap<String, String>  makeCall(String stringURL) {
         URL url = null;
         BufferedInputStream buffer = null;
         JsonReader jsonReader;
         HttpsURLConnection myConnection = null;
-        ArrayList<Article> result = new ArrayList<Article>();
 
         // Create URL
         try {

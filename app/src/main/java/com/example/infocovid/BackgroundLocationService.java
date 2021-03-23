@@ -1,9 +1,6 @@
 package com.example.infocovid;
 
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -19,11 +16,8 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
-
-import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
-
 import java.io.IOException;
+
 import java.util.List;
 import java.util.Locale;
 
@@ -32,7 +26,7 @@ public class BackgroundLocationService extends Service {
     private static final String TAG = "BgLocationService";
     private LocationListener locationListener;
     private LocationManager locationManager;
-    private final int LOCATION_INTERVAL = 10000; // 10000ms - 1min
+    private final int LOCATION_INTERVAL = 10000; // 10000ms - min
     private final int LOCATION_DISTANCE = 50; //50m
 
     @Override
@@ -50,16 +44,15 @@ public class BackgroundLocationService extends Service {
             mLastLocation = new Location(provider);
         }
 
-        @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         public void onLocationChanged(Location location) {
             mLastLocation = location;
             // Transfrom longitude and latitude to zipCode and save it to disk
             saveZipCode(mLastLocation);
 
-            // Check if curfew is 30 min close, if so we send a notification
-
-            notifyCurfew();
+            // Launch curfew notification client
+            NotificationClient notificationClient = new NotificationClient(getApplicationContext());
+            notificationClient.execute();
         }
 
         @Override
@@ -135,28 +128,6 @@ public class BackgroundLocationService extends Service {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void notifyCurfew() {
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.logo) //set icon for notification
-                        .setContentTitle("Toque de queda cerca")
-                        .setContentText("30 minutos para el toque de queda en tu zona!")
-                        .setAutoCancel(true) // makes auto cancel of notification
-                        .setPriority(NotificationCompat.PRIORITY_DEFAULT); //set priority of notification
-
-
-        // Add as notification
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        String channelId = "Curfew";
-        NotificationChannel channel = new NotificationChannel(
-                channelId,
-                "curfewChannel",
-                NotificationManager.IMPORTANCE_HIGH);
-        manager.createNotificationChannel(channel);
-        builder.setChannelId(channelId);
-        manager.notify(0, builder.build());
-    }
 
     private void saveZipCode(Location location){
         // Transformar lat y long en zipCode
@@ -171,7 +142,7 @@ public class BackgroundLocationService extends Service {
         }
 
         // Creamos colecciÃ³n de preferencias
-        String sharedPrefFile = "com.uc3m.it.hellolocation";
+        String sharedPrefFile = "com.uc3m.it.infocovid";
         SharedPreferences mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
 
         SharedPreferences.Editor editor = mPreferences.edit();
@@ -186,9 +157,7 @@ public class BackgroundLocationService extends Service {
                 + location.getLongitude() + " \n ZIPCODE: " + zipCode);
     }
 
-    private void checkCurfew(){
 
-    }
 }
 
 

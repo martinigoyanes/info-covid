@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         String msg = "Clickado en restrictions";
 
         // Creamos coleccion de preferencias
-        String sharedPrefFile = "com.uc3m.it.hellolocation";
+        String sharedPrefFile = "com.uc3m.it.infocovid";
         SharedPreferences mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         String zipCode = mPreferences.getString("zipCode", "0");
         Log.d("MainActivity",msg + " ZIPCODE: " + zipCode);
