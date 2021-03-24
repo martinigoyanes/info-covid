@@ -10,7 +10,6 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Binder;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -84,7 +83,6 @@ public class BackgroundLocationService extends Service {
         if (locationManager != null) {
             try {
                 locationManager.removeUpdates(locationListener);
-                //locationRepository = null;
             } catch (Exception ex) {
                 Log.i(TAG, "fail to remove location listeners, ignore", ex);
             }

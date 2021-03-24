@@ -24,9 +24,6 @@ import com.example.infocovid.NewsClient;
 public class DisplayNewsActivity extends AppCompatActivity {
 
     private RecyclerView newsView;
-    private ArrayList<Article> articles = new ArrayList<Article>();
-
-    private NewsAdapter newsAdapter;
     private LinearLayoutManager newsLayout;
 
     @Override
@@ -43,7 +40,4 @@ public class DisplayNewsActivity extends AppCompatActivity {
 
     }
 
-    public void webView(View view){
-        System.out.println("webView");
-    }
 }
