@@ -43,7 +43,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:textSize="30sp"
-                        android:text="Hoy en España"
+                        android:text="Hoy en"
                         android:gravity="center"
                         />
                     <TextView android:id="@+id/deaths_title"
