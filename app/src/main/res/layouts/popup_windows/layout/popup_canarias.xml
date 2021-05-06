@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:useDefaultMargins="true"
+        android:columnCount="2"
+        android:rowCount="1">
+
+        <Button
+            android:id="@+id/button_palmas"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="50dp"
+            android:text="Las Palmas"
+            android:background="@drawable/round_corners"/>
+        <Button
+            android:id="@+id/button_tenerife"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="50dp"
+            android:text="Santa Cruz de Tenerife"
+            android:background="@drawable/round_corners"/>
+
+    </GridLayout>
+</RelativeLayout>

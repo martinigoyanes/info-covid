@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:useDefaultMargins="true"
+        android:columnCount="3"
+        android:rowCount="3">
+
+        <Button
+            android:id="@+id/button_alicante"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="50dp"
+            android:text="Alicante"
+            android:background="@drawable/round_corners"/>
+        <Button
+            android:id="@+id/button_castellon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="50dp"
+            android:text="Castellón"
+            android:background="@drawable/round_corners"/>
+        <Button
+            android:id="@+id/button_valencia"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="50dp"
+            android:text="Valencia"
+            android:background="@drawable/round_corners"/>
+
+    </GridLayout>
+</RelativeLayout>

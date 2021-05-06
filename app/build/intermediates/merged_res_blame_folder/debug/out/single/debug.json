@@ -1,0 +1,250 @@
+[
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/anim_slide_in_down.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/slide_in_down.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_logo_foreground.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-hdpi/ic_launcher_logo_foreground.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_andalucia.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/layout/popup_andalucia.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable_logo.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/drawable/logo.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_aragon.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/layout/popup_aragon.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_activity_display_search.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/display_layouts/layout/activity_display_search.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/anim_slide_out_up.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/slide_out_up.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_logo.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xhdpi/ic_launcher_logo.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_logo.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-hdpi/ic_launcher_logo.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/anim_slide_in_up.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/slide_in_up.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_logo_round.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-mdpi/ic_launcher_logo_round.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/anim_slide_in_right.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/slide_in_right.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_logo_round.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxhdpi/ic_launcher_logo_round.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_logo_foreground.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxhdpi/ic_launcher_logo_foreground.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_extremadura.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/layout/popup_extremadura.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_logo_round.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-hdpi/ic_launcher_logo_round.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_logo_round.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xhdpi/ic_launcher_logo_round.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable_round_corners.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/drawable/round_corners.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_logo.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-mdpi/ic_launcher_logo.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/anim_slide_out_right.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/slide_out_right.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_article_item.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/other/layout/article_item.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable_ic_launcher_logo_background.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/drawable/ic_launcher_logo_background.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_logo.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_cataluna.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/layout/popup_cataluna.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable_ic_covid_notification.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/drawable/ic_covid_notification.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_mancha.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/layout/popup_mancha.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/anim_slide_in_left.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/slide_in_left.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/anim_slide_out_left.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/slide_out_left.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_logo.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxxhdpi/ic_launcher_logo.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_activity_display_restrictions.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/display_layouts/layout/activity_display_restrictions.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_logo_foreground.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xhdpi/ic_launcher_logo_foreground.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable_ic_go_back_arrow.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/drawable/ic_go_back_arrow.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_activity_display_news.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/display_layouts/layout/activity_display_news.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_valencia.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/layout/popup_valencia.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_logo_foreground.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxxhdpi/ic_launcher_logo_foreground.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_canarias.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/layout/popup_canarias.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_logo_foreground.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-mdpi/ic_launcher_logo_foreground.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_galicia.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/layout/popup_galicia.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_logo_round.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxxhdpi/ic_launcher_logo_round.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_restriction_title.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/other/layout/restriction_title.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/other/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_restriction_description.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/other/layout/restriction_description.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_logo.png.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxhdpi/ic_launcher_logo.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_leon.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/layout/popup_leon.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/anim_hold.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/hold.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/anim_slide_out_down.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/slide_out_down.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_logo_round.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-anydpi-v26/ic_launcher_logo_round.xml"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_paisvasco.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/layout/popup_paisvasco.xml"
+    }
+]

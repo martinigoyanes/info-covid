@@ -44,7 +44,11 @@ public class RestrictionsClient extends AsyncTask<View,Void, HashMap<String, Str
 
         // Si buscamos por zipcode o buscamos por provincia son dos endpoints diferentes
         if(this.zipCode != null)
-            endPoint = "https://api.quecovid.es/restriction/restriction?zipcode=" + this.zipCode + "&token=" + apiKey;
+            try {
+                endPoint = "https://api.quecovid.es/restriction/restriction?zipcode=" + this.zipCode + "&token=" + apiKey;
+            } catch (Exception ex) {
+
+            }
         else if(this.province != null)
             endPoint = "https://api.quecovid.es/restriction/restriction?place=provincia+de+" + this.province + "&token=" + apiKey;
 

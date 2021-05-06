@@ -1,26 +1,14 @@
 package com.example.infocovid;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.JsonReader;
-import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.net.ssl.HttpsURLConnection;
-import com.example.infocovid.NewsClient;
 public class DisplayNewsActivity extends AppCompatActivity {
 
     private RecyclerView newsView;
@@ -30,6 +18,21 @@ public class DisplayNewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_news);
+
+        // Set Toolbar
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.news_toolbar);
+        setTitle("News");
+        setSupportActionBar(myToolbar);
+        myToolbar.setNavigationIcon(R.drawable.ic_go_back_arrow);
+        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+            }
+        });
+
         newsView = (RecyclerView) findViewById(R.id.recView);
 
         newsLayout = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -37,7 +40,6 @@ public class DisplayNewsActivity extends AppCompatActivity {
 
         NewsClient newsClient = new NewsClient(newsView);
         newsClient.execute();
-
     }
 
 }

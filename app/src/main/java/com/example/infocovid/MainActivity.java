@@ -1,29 +1,23 @@
 package com.example.infocovid;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import android.content.ComponentName;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.view.View;
 import android.util.Log;
-import android.widget.Button;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
-import java.util.List;
-
-import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
 
 public class MainActivity extends AppCompatActivity {
     private final int PERMISSION_REQUEST_CODE = 200;
@@ -33,15 +27,46 @@ public class MainActivity extends AppCompatActivity {
     TextView dateText;
     TextView cardTitle;
 
+    private TextView textView;
+    private BroadcastReceiver broadcastReceiver;
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(broadcastReceiver == null){
+            broadcastReceiver = new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    textView.setText(""+intent.getExtras().get("address"));
+                    showStatistics();
+                }
+            };
+        }
+        registerReceiver(broadcastReceiver,new IntentFilter("location_update"));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(broadcastReceiver != null){
+            unregisterReceiver(broadcastReceiver);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //prepare location service
-        final Intent intent = new Intent(this.getApplication(), BackgroundLocationService.class);
-        this.getApplication().startService(intent);
-        this.getApplication().bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+        // Set Toolbar
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.main_toolbar);
+        setTitle("Home Menu");
+        setSupportActionBar(myToolbar);
+
+        // Set Coordinates Text & Start Location Tracking
+        textView = (TextView) findViewById(R.id.coordinates_text);
+        startTracking();
 
         // Get stats of covid19
         StatisticsClient statisticsClient = new StatisticsClient(this);
@@ -49,6 +74,22 @@ public class MainActivity extends AppCompatActivity {
 
         showStatistics();
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                startTracking();
+            }
+        }
+    }
+
+    public void startTracking() {
+        Intent intent = new Intent(getApplicationContext(), BackgroundLocationService.class);
+        startService(intent);
     }
 
     public void showStatistics(){
@@ -65,18 +106,39 @@ public class MainActivity extends AppCompatActivity {
         String deaths = mPreferences.getString("today_new_deaths", "0");
         String date = mPreferences.getString("last_updated", "0");
         String comunidad = mPreferences.getString("comunidad", "null");
+        String pais = mPreferences.getString("pais", "null");
 
-        casesText.setText(cases);
-        deathsText.setText(deaths);
+        if(!pais.equals("Spain")) {
+            casesText.setText("Unavailable Data");
+            casesText.setTextSize(15);
+            casesText.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
+            casesText.setTextColor(Color.parseColor("#E06C6C"));
+            deathsText.setText("Unavailable Data");
+            deathsText.setTextSize(15);
+            deathsText.setTypeface(Typeface.defaultFromStyle(Typeface.ITALIC));
+            deathsText.setTextColor(Color.parseColor("#E06C6C"));
+        } else {
+            casesText.setText(cases);
+            casesText.setTextSize(40);
+            casesText.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            casesText.setTextColor(Color.parseColor("#0003e0"));
+            deathsText.setText(deaths);
+            deathsText.setTextSize(40);
+            deathsText.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            deathsText.setTextColor(Color.parseColor("#0003e0"));
+        }
         dateText.setText("Actualizado el " + date);
         cardTitle.setText("Hoy en " + comunidad);
-
     }
+
+    // ---------------------------------------------------------------------------------------------------------------------------------
+
     public void loadNews(View view){
         String msg = "Clickado en news";
         Log.d("MainActivity",msg);
         Intent intent = new Intent(this, DisplayNewsActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
     public void loadRestrictions(View view){
         String msg = "Clickado en restrictions";
@@ -89,49 +151,16 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, DisplayRestrictionsActivity.class);
         intent.putExtra("zipCode", zipCode);
+        intent.putExtra("activity", "MainActivity");
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_up, R.anim.hold);
     }
     public void loadSearch(View view){
         String msg = "Clickado en search";
         Log.d("MainActivity",msg);
         Intent intent = new Intent(this, DisplaySearchActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    public void startTracking() {
-        //check for permission
-        if (ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            locationService.startTracking();
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION}, PERMISSION_REQUEST_CODE);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0
-                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                startTracking();
-            }
-        }
-    }
-
-    private ServiceConnection serviceConnection = new ServiceConnection() {
-        public void onServiceConnected(ComponentName className, IBinder service) {
-            String name = className.getClassName();
-            if (name.endsWith("BackgroundLocationService")) {
-                locationService = ((BackgroundLocationService.LocationServiceBinder) service).getService();
-                startTracking();
-            }
-        }
-
-        public void onServiceDisconnected(ComponentName className) {
-            if (className.getClassName().equals("BackgroundLocationService")) {
-                locationService = null;
-            }
-        }
-    };
 }
