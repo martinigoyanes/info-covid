@@ -2,6 +2,7 @@ package com.example.infocovid;
 
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,11 +10,13 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.RingtoneManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -31,6 +34,7 @@ import java.util.Locale;
 
 public class BackgroundLocationService extends Service {
 
+    String channelId = "checkRestrictions";
     private LocationListener listener;
     private LocationManager locationManager;
     private static final String TAG = "BgLocationService";
@@ -74,6 +78,21 @@ public class BackgroundLocationService extends Service {
         locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
 
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE, listener);
+
+        // Check list of Available Location Provides
+        boolean soloActivos = true;
+        List<String> proveedores = locationManager.getProviders(soloActivos);
+        // Check if desirable provider is active
+        String proveedorElegido = LocationManager.GPS_PROVIDER;
+        boolean disponible = proveedores.contains(proveedorElegido);
+        // Otherwise, use first available
+        if (!disponible) {
+            proveedorElegido = proveedores.get(0);
+        }
+        // Ask last known location to provider
+        Location localizacion = locationManager.getLastKnownLocation(proveedorElegido);
+
+        saveLocationInfo(localizacion);
 
     }
 
@@ -148,10 +167,10 @@ public class BackgroundLocationService extends Service {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(pendingIntent).setSmallIcon(R.drawable.ic_covid_notification);
         mBuilder.setContentTitle("Bienvenido a " + comunidad).setContentText("Revisa las restricciones de la zona.");
+        mBuilder.setLights(Color.RED, 0, 1).setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 });
 
         notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            String channelId = "checkRestrictions";
             NotificationChannel channel = new NotificationChannel(channelId,
                     "Canal de New Restrictions",
                     NotificationManager.IMPORTANCE_DEFAULT);
@@ -159,6 +178,13 @@ public class BackgroundLocationService extends Service {
             mBuilder.setChannelId(channelId);
         }
         notificationManager.notify(0, mBuilder.build());
+
+        Notification notification = new NotificationCompat.Builder(this, channelId)
+                .setContentText("InfoCovid ejecutando en segundo plano.")
+                .setSmallIcon(R.drawable.ic_covid_notification)
+                .setContentIntent(pendingIntent)
+                .build();
+        startForeground(1, notification);
     }
 }
 

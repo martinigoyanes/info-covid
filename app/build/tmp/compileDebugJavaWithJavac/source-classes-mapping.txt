@@ -1,6 +1,5 @@
-com/example/infocovid/DisplayNewsActivity.java
- com.example.infocovid.DisplayNewsActivity
- com.example.infocovid.DisplayNewsActivity$1
+com/example/infocovid/NotificationClient.java
+ com.example.infocovid.NotificationClient
 com/example/infocovid/BuildConfig.java
  com.example.infocovid.BuildConfig
 com/example/infocovid/NewsAdapter.java
@@ -10,39 +9,14 @@ com/example/infocovid/NewsAdapter.java
 com/example/infocovid/DisplayRestrictionsActivity.java
  com.example.infocovid.DisplayRestrictionsActivity
  com.example.infocovid.DisplayRestrictionsActivity$1
-com/example/infocovid/DisplaySearchActivity.java
- com.example.infocovid.DisplaySearchActivity
- com.example.infocovid.DisplaySearchActivity$1
- com.example.infocovid.DisplaySearchActivity$10
- com.example.infocovid.DisplaySearchActivity$11
- com.example.infocovid.DisplaySearchActivity$12
- com.example.infocovid.DisplaySearchActivity$13
- com.example.infocovid.DisplaySearchActivity$14
- com.example.infocovid.DisplaySearchActivity$15
- com.example.infocovid.DisplaySearchActivity$16
- com.example.infocovid.DisplaySearchActivity$17
- com.example.infocovid.DisplaySearchActivity$18
- com.example.infocovid.DisplaySearchActivity$19
- com.example.infocovid.DisplaySearchActivity$2
- com.example.infocovid.DisplaySearchActivity$20
- com.example.infocovid.DisplaySearchActivity$21
- com.example.infocovid.DisplaySearchActivity$3
- com.example.infocovid.DisplaySearchActivity$4
- com.example.infocovid.DisplaySearchActivity$5
- com.example.infocovid.DisplaySearchActivity$6
- com.example.infocovid.DisplaySearchActivity$7
- com.example.infocovid.DisplaySearchActivity$8
- com.example.infocovid.DisplaySearchActivity$9
+com/example/infocovid/NewsClient.java
+ com.example.infocovid.NewsClient
 com/example/infocovid/CustomExpandableListAdapter.java
  com.example.infocovid.CustomExpandableListAdapter
 com/example/infocovid/StatisticsClient.java
  com.example.infocovid.StatisticsClient
 com/example/infocovid/RestrictionsClient.java
  com.example.infocovid.RestrictionsClient
-com/example/infocovid/NotificationClient.java
- com.example.infocovid.NotificationClient
-com/example/infocovid/Article.java
- com.example.infocovid.Article
 com/example/infocovid/Pop.java
  com.example.infocovid.Pop
  com.example.infocovid.Pop$1
@@ -88,8 +62,34 @@ com/example/infocovid/Pop.java
  com.example.infocovid.Pop$7
  com.example.infocovid.Pop$8
  com.example.infocovid.Pop$9
-com/example/infocovid/NewsClient.java
- com.example.infocovid.NewsClient
+com/example/infocovid/Article.java
+ com.example.infocovid.Article
+com/example/infocovid/DisplayNewsActivity.java
+ com.example.infocovid.DisplayNewsActivity
+ com.example.infocovid.DisplayNewsActivity$1
+com/example/infocovid/DisplaySearchActivity.java
+ com.example.infocovid.DisplaySearchActivity
+ com.example.infocovid.DisplaySearchActivity$1
+ com.example.infocovid.DisplaySearchActivity$10
+ com.example.infocovid.DisplaySearchActivity$11
+ com.example.infocovid.DisplaySearchActivity$12
+ com.example.infocovid.DisplaySearchActivity$13
+ com.example.infocovid.DisplaySearchActivity$14
+ com.example.infocovid.DisplaySearchActivity$15
+ com.example.infocovid.DisplaySearchActivity$16
+ com.example.infocovid.DisplaySearchActivity$17
+ com.example.infocovid.DisplaySearchActivity$18
+ com.example.infocovid.DisplaySearchActivity$19
+ com.example.infocovid.DisplaySearchActivity$2
+ com.example.infocovid.DisplaySearchActivity$20
+ com.example.infocovid.DisplaySearchActivity$21
+ com.example.infocovid.DisplaySearchActivity$3
+ com.example.infocovid.DisplaySearchActivity$4
+ com.example.infocovid.DisplaySearchActivity$5
+ com.example.infocovid.DisplaySearchActivity$6
+ com.example.infocovid.DisplaySearchActivity$7
+ com.example.infocovid.DisplaySearchActivity$8
+ com.example.infocovid.DisplaySearchActivity$9
 com/example/infocovid/BackgroundLocationService.java
  com.example.infocovid.BackgroundLocationService
  com.example.infocovid.BackgroundLocationService$1

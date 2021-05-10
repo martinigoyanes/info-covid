@@ -28,6 +28,10 @@
         "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable_round_button.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/layouts/popup_windows/drawable/round_button.xml"
+    },
+    {
         "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
@@ -112,6 +116,10 @@
         "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
     },
     {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable_ic_news_icon.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/drawable/ic_news_icon.xml"
+    },
+    {
         "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/anim_slide_out_right.xml.flat",
         "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/slide_out_right.xml"
     },
@@ -148,6 +156,10 @@
         "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/anim/slide_out_left.xml"
     },
     {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable_ic_restrictions_icon.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/drawable/ic_restrictions_icon.xml"
+    },
+    {
         "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_logo.png.flat",
         "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-xxxhdpi/ic_launcher_logo.png"
     },
@@ -182,6 +194,10 @@
     {
         "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_logo_foreground.png.flat",
         "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/mipmap-mdpi/ic_launcher_logo_foreground.png"
+    },
+    {
+        "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/drawable_ic_search_icon.xml.flat",
+        "source": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/res/drawable/ic_search_icon.xml"
     },
     {
         "merged": "/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/build/intermediates/res/merged/debug/layout_popup_galicia.xml.flat",
