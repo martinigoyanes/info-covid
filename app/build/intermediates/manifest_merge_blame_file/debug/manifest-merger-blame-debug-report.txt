@@ -24,7 +24,7 @@
 14-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:8:22-74
 15
 16    <application
-16-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:10:5-52:19
+16-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:10:5-61:19
 17        android:allowBackup="true"
 17-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:11:9-35
 18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -107,21 +107,37 @@
 60-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:51:9-62
 60-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:51:18-59
 61
-62        <activity
-62-->[com.google.android.gms:play-services-base:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/e925637875d33608425f6e71f5a9945f/jetified-play-services-base-9.4.0/AndroidManifest.xml:20:9-22:45
-63            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-63-->[com.google.android.gms:play-services-base:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/e925637875d33608425f6e71f5a9945f/jetified-play-services-base-9.4.0/AndroidManifest.xml:20:19-85
-64            android:exported="false"
-64-->[com.google.android.gms:play-services-base:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/e925637875d33608425f6e71f5a9945f/jetified-play-services-base-9.4.0/AndroidManifest.xml:22:19-43
-65            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-65-->[com.google.android.gms:play-services-base:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/e925637875d33608425f6e71f5a9945f/jetified-play-services-base-9.4.0/AndroidManifest.xml:21:19-78
-66
-67        <meta-data
-67-->[com.google.android.gms:play-services-basement:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/6fc0a2acd7237b61b20179d00214f2b2/jetified-play-services-basement-9.4.0/AndroidManifest.xml:21:9-23:69
-68            android:name="com.google.android.gms.version"
-68-->[com.google.android.gms:play-services-basement:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/6fc0a2acd7237b61b20179d00214f2b2/jetified-play-services-basement-9.4.0/AndroidManifest.xml:22:13-58
-69            android:value="@integer/google_play_services_version" />
-69-->[com.google.android.gms:play-services-basement:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/6fc0a2acd7237b61b20179d00214f2b2/jetified-play-services-basement-9.4.0/AndroidManifest.xml:23:13-66
-70    </application>
-71
-72</manifest>
+62        <receiver
+62-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:52:9-59:20
+63            android:name="com.example.infocovid.MyBroadcastReceiver"
+63-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:53:13-48
+64            android:enabled="true"
+64-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:54:13-35
+65            android:exported="true" >
+65-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:55:13-36
+66            <intent-filter>
+66-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:56:13-58:29
+67                <action android:name="@strings/alarm" />
+67-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:57:17-57
+67-->/Users/jacobocastillo/Desktop/Mobile Applications/infocovid/app/src/main/AndroidManifest.xml:57:25-54
+68            </intent-filter>
+69        </receiver>
+70
+71        <activity
+71-->[com.google.android.gms:play-services-base:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/e925637875d33608425f6e71f5a9945f/jetified-play-services-base-9.4.0/AndroidManifest.xml:20:9-22:45
+72            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+72-->[com.google.android.gms:play-services-base:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/e925637875d33608425f6e71f5a9945f/jetified-play-services-base-9.4.0/AndroidManifest.xml:20:19-85
+73            android:exported="false"
+73-->[com.google.android.gms:play-services-base:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/e925637875d33608425f6e71f5a9945f/jetified-play-services-base-9.4.0/AndroidManifest.xml:22:19-43
+74            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+74-->[com.google.android.gms:play-services-base:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/e925637875d33608425f6e71f5a9945f/jetified-play-services-base-9.4.0/AndroidManifest.xml:21:19-78
+75
+76        <meta-data
+76-->[com.google.android.gms:play-services-basement:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/6fc0a2acd7237b61b20179d00214f2b2/jetified-play-services-basement-9.4.0/AndroidManifest.xml:21:9-23:69
+77            android:name="com.google.android.gms.version"
+77-->[com.google.android.gms:play-services-basement:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/6fc0a2acd7237b61b20179d00214f2b2/jetified-play-services-basement-9.4.0/AndroidManifest.xml:22:13-58
+78            android:value="@integer/google_play_services_version" />
+78-->[com.google.android.gms:play-services-basement:9.4.0] /Users/jacobocastillo/.gradle/caches/transforms-2/files-2.1/6fc0a2acd7237b61b20179d00214f2b2/jetified-play-services-basement-9.4.0/AndroidManifest.xml:23:13-66
+79    </application>
+80
+81</manifest>

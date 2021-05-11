@@ -59,6 +59,15 @@
 
         <service android:name="com.example.infocovid.BackgroundLocationService" />
 
+        <receiver
+            android:name="com.example.infocovid.MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="@strings/alarm" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"

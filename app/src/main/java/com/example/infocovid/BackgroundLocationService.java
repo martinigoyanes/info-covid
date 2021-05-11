@@ -40,6 +40,7 @@ public class BackgroundLocationService extends Service {
     private static final String TAG = "BgLocationService";
     private final int LOCATION_INTERVAL = 10000; // 10000ms - min
     private final int LOCATION_DISTANCE = 50; //50m
+    public static String toqueDeQueda;
 
     @Nullable
     @Override
@@ -133,7 +134,7 @@ public class BackgroundLocationService extends Service {
 
         // Guardamos el valor de la preferencia
         editor.putString("zipCode", zipCode);
-        editor.putString("prev_comunidad", mPreferences.getString("comunidad", "null"));
+        editor.putString("prev_comunidad", prev_comunidad);
         editor.putString("comunidad", comunidad);
         editor.putString("pais", pais);
         editor.apply();
@@ -145,6 +146,9 @@ public class BackgroundLocationService extends Service {
 
         if(!comunidad.equals(prev_comunidad) && pais.equals("Spain")) {
             newRestrictionsNotification(comunidad, zipCode);
+            Log.i("prueba toque", "Estás en " + comunidad.toLowerCase());
+            RestrictionsClient restrictionsClient = new RestrictionsClient(getApplicationContext(), null, comunidad.toLowerCase(), false);
+            restrictionsClient.execute();
         }
 
         // Broadcast Intent w/ Filter

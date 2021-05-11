@@ -3,6 +3,7 @@ package com.example.infocovid;
 import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -24,6 +26,7 @@ import androidx.core.content.ContextCompat;
 public class MainActivity extends AppCompatActivity {
     private final int REQUEST_PERMISSION_ACCESS_FINE_LOCATION=1;
     private final int PERMISSION_REQUEST_CODE = 200;
+    private final int PERMISSION_FINE_LOCATION_CODE = 201;
     public BackgroundLocationService locationService;
     TextView casesText;
     TextView deathsText;
@@ -77,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Home Menu");
         setSupportActionBar(myToolbar);
 
+        //Check if fine location permission is already accepted
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            showLocationPermissionDialog();
+        }
+
         // Set Coordinates Text & Start Location Tracking
         textView = (TextView) findViewById(R.id.coordinates_text);
         startTracking();
@@ -89,27 +97,46 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void showLocationPermissionDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Esta aplicación necesita acceso a localización");
+        builder.setMessage("Por favor, concede permisos de localicación para poder situar tu posición");
+        builder.setPositiveButton(android.R.string.ok, null);
+        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        PERMISSION_FINE_LOCATION_CODE);
+            }
+        });
+        builder.show();
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_PERMISSION_ACCESS_FINE_LOCATION: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-                    finish();
-                    startActivity(new Intent(this, this.getClass()));
-
-                } else {
-
-                    // permission denied, boo! Disable the
-                    // functionality that depends on this permission.
-                }
-                return;
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                startTracking();
             }
+        }
+        if (requestCode == PERMISSION_FINE_LOCATION_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permisos de localización activados", Toast.LENGTH_LONG);
+            }else {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Funcionalidad limitada");
+                builder.setMessage("Debido a que no han sido concedidos los permisos de localización, no se podrá situar tu posición.");
+                builder.setPositiveButton(android.R.string.ok, null);
+                builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialog) {
+                    }
+                });
+                builder.show();
 
-            // other 'case' lines to check for other
-            // permissions this app might request.
+            }
         }
     }
 

@@ -1,12 +1,18 @@
 package com.example.infocovid;
 
+import android.app.AlarmManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.ExpandableListView;
 
+import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.BufferedInputStream;
@@ -18,22 +24,34 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
+import static android.content.Context.MODE_PRIVATE;
 
 public class RestrictionsClient extends AsyncTask<View,Void, HashMap<String, String>> {
     ExpandableListView restrictionsView;
     Context context;
     String zipCode = "";
     String province = "";
+    boolean display;
 
     public RestrictionsClient(ExpandableListView restrictionsView, Context context, String zipCode, String province) {
         this.restrictionsView = restrictionsView;
         this.context = context;
         this.zipCode = zipCode;
         this.province = province;
+        this.display = true;
+    }
+
+    public RestrictionsClient(Context context, String zipCode, String province, boolean display) {
+        this.restrictionsView = null;
+        this.context = context;
+        this.zipCode = zipCode;
+        this.province = province;
+        this.display = display;
     }
 
     @Override
@@ -63,9 +81,19 @@ public class RestrictionsClient extends AsyncTask<View,Void, HashMap<String, Str
     @Override
     protected void onPostExecute(HashMap<String, String> restrictions) {
         // Generate restrictions view
-        List<String> restrictionsTitles = new ArrayList<String>(restrictions.keySet());
-        CustomExpandableListAdapter expandableListAdapter = new CustomExpandableListAdapter(this.context, restrictionsTitles, restrictions);
-        this.restrictionsView.setAdapter(expandableListAdapter);
+        if(this.display==true) {
+            List<String> restrictionsTitles = new ArrayList<String>(restrictions.keySet());
+            CustomExpandableListAdapter expandableListAdapter = new CustomExpandableListAdapter(this.context, restrictionsTitles, restrictions);
+            this.restrictionsView.setAdapter(expandableListAdapter);
+        }else {
+
+            String toqueDeQueda = restrictions.get("Restringida la movilidad nocturna");
+            if(toqueDeQueda!=null) {
+                newTDQAlarm(toqueDeQueda);
+            }
+
+
+        }
     }
 
     public static HashMap<String, String>  makeCall(String stringURL) {
@@ -139,6 +167,61 @@ public class RestrictionsClient extends AsyncTask<View,Void, HashMap<String, Str
         }
         Log.d("RestrictionsClient", "Obtained " + restrictionsLength + " restrictions");
         return restrictions;
+    }
+
+    public void newTDQAlarm(String toqueDeQueda){
+        //Creamos la alarma
+        Log.i("Prueba toque", toqueDeQueda);
+        int index = toqueDeQueda.lastIndexOf("entre las");
+        if(index==-1)
+            index = toqueDeQueda.lastIndexOf("desde las");
+
+        String horaCompleta = toqueDeQueda.substring(index + 10, index + 15);
+        Log.i("prueba toque", "La hora completa es: " + horaCompleta);
+        int hora = Integer.parseInt(horaCompleta.substring(0,2));
+        int minutos = Integer.parseInt(horaCompleta.substring(3,5));
+        minutos = minutos - 10;
+        if(minutos<0) {
+            hora = hora-1;
+            minutos = 60 + minutos;
+        }
+        if(hora<0) {
+            hora = 24 + hora;
+        }
+        Log.i("prueba toque", "La hora de la alarma es: " + hora + ":" + minutos);
+
+        AlarmManager alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, MyBroadcastReceiver.class);
+        PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, hora);
+        calendar.set(Calendar.MINUTE, minutos);
+
+        alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                alarmPendingIntent);
+
+
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // crea canal de notificaciones
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context.getApplicationContext(), "com.uc3m.it.infocovid.notify_001");
+        SharedPreferences mPreferences = context.getSharedPreferences("com.uc3m.it.infocovid", MODE_PRIVATE);
+        String comunidad = mPreferences.getString("comunidad", null);
+
+        Intent intent2 = new Intent(context.getApplicationContext(), DisplayRestrictionsActivity.class);
+        intent2.putExtra("province", comunidad);
+        intent2.putExtra("activity", "MainActivity");
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent2, 0);
+        mBuilder.setContentIntent(pendingIntent);
+        mBuilder.setSmallIcon(R.drawable.ic_covid_notification);
+        mBuilder.setContentTitle("Alarma activada");
+        mBuilder.setContentText("Alarma de toque de queda para las: " + hora + ":" + minutos);
+        mBuilder.setChannelId("checkRestrictions");
+
+        notificationManager.notify(0, mBuilder.build());
     }
 }
 
