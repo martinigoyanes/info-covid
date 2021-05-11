@@ -1,3 +1,13 @@
+//==================================================================================================
+//
+//      Title:          DisplayRestrictionsActivity (InfoCovid)
+//      Authors:        Martín Iglesias Goyanes
+//                      Jacobo Del Castillo Monche
+//                      Carlos García Guzman
+//      Date:           12 May 2021
+//
+//==================================================================================================
+
 package com.example.infocovid;
 
 import androidx.appcompat.app.AppCompatActivity;

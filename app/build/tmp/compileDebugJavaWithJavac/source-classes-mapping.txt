@@ -1,5 +1,8 @@
-com/example/infocovid/NotificationClient.java
- com.example.infocovid.NotificationClient
+com/example/infocovid/MainActivity.java
+ com.example.infocovid.MainActivity
+ com.example.infocovid.MainActivity$1
+ com.example.infocovid.MainActivity$2
+ com.example.infocovid.MainActivity$3
 com/example/infocovid/BuildConfig.java
  com.example.infocovid.BuildConfig
 com/example/infocovid/NewsAdapter.java
@@ -95,8 +98,3 @@ com/example/infocovid/DisplayRestrictionsActivity.java
 com/example/infocovid/BackgroundLocationService.java
  com.example.infocovid.BackgroundLocationService
  com.example.infocovid.BackgroundLocationService$1
-com/example/infocovid/MainActivity.java
- com.example.infocovid.MainActivity
- com.example.infocovid.MainActivity$1
- com.example.infocovid.MainActivity$2
- com.example.infocovid.MainActivity$3
