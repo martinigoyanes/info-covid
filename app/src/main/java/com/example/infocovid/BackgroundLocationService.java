@@ -139,8 +139,6 @@ public class BackgroundLocationService extends Service {
         editor.putString("pais", pais);
         editor.apply();
 
-        Toast.makeText(BackgroundLocationService.this, "LAT: " + location.getLatitude() + "\n LONG: "
-                + location.getLongitude() + " \n ZIPCODE: " + zipCode + "\n CCAA: " + comunidad + "\n PAIS: " + pais, Toast.LENGTH_SHORT).show();
         Log.d(TAG, "LAT: " + location.getLatitude() + "\n LONG: "
                 + location.getLongitude() + " \n ZIPCODE: " + zipCode);
 

@@ -64,14 +64,6 @@ com/example/infocovid/RestrictionsClient.java
 com/example/infocovid/DisplayNewsActivity.java
  com.example.infocovid.DisplayNewsActivity
  com.example.infocovid.DisplayNewsActivity$1
-com/example/infocovid/BackgroundLocationService.java
- com.example.infocovid.BackgroundLocationService
- com.example.infocovid.BackgroundLocationService$1
-com/example/infocovid/MyBroadcastReceiver.java
- com.example.infocovid.MyBroadcastReceiver
-com/example/infocovid/DisplayRestrictionsActivity.java
- com.example.infocovid.DisplayRestrictionsActivity
- com.example.infocovid.DisplayRestrictionsActivity$1
 com/example/infocovid/DisplaySearchActivity.java
  com.example.infocovid.DisplaySearchActivity
  com.example.infocovid.DisplaySearchActivity$1
@@ -95,6 +87,14 @@ com/example/infocovid/DisplaySearchActivity.java
  com.example.infocovid.DisplaySearchActivity$7
  com.example.infocovid.DisplaySearchActivity$8
  com.example.infocovid.DisplaySearchActivity$9
+com/example/infocovid/MyBroadcastReceiver.java
+ com.example.infocovid.MyBroadcastReceiver
+com/example/infocovid/DisplayRestrictionsActivity.java
+ com.example.infocovid.DisplayRestrictionsActivity
+ com.example.infocovid.DisplayRestrictionsActivity$1
+com/example/infocovid/BackgroundLocationService.java
+ com.example.infocovid.BackgroundLocationService
+ com.example.infocovid.BackgroundLocationService$1
 com/example/infocovid/MainActivity.java
  com.example.infocovid.MainActivity
  com.example.infocovid.MainActivity$1
